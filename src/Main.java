@@ -64,7 +64,7 @@ public class Main {
         int accountNumber = scan.nextInt();
         System.out.println("Please pick an account PIN");
         int pin = scan.nextInt();
-        System.out.println("Please Enter an initial balance.");
+        System.out.println("Please Enter an initial balance");
         double accountBalance = scan.nextDouble();
         scan.nextLine();
         accountArrayList.add(new Account(name, accountNumber, pin, accountBalance)); //Create account using user provided variables
