@@ -55,15 +55,16 @@ public class Main {
             }
         }
     }
+
     public static void createAccount() {
         //Gather account information
         Scanner scan = new Scanner(System.in);
         System.out.println("Please Enter a name for the account");
         String name = scan.nextLine();
-        System.out.println("Please pick an account number");
+        System.out.println("Please pick a six digit account number");
         int accountNumber = scan.nextInt();
         System.out.println("Please pick an account PIN");
-        int pin = scan.nextInt();
+        int pin = getPin();
         System.out.println("Please Enter an initial balance  ");
         double accountBalance = scan.nextDouble();
         scan.nextLine();
@@ -205,6 +206,24 @@ public class Main {
                 accountArrayList.remove(j);
             }
         }
+    }
+
+    public static int getPin() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter a four digit PIN");
+        int pin = -1000;
+
+        do {
+            System.out.println("Please enter a 4 digit PIN");
+            while (!scan.hasNextInt()) {
+                System.out.println("That is not a valid number");
+                scan.next();
+            }
+            pin = scan.nextInt();
+        } while (String.valueOf(pin).length() != 4 || pin < 0);
+
+        System.out.println("Your PIN is " + pin);
+        return pin;
     }
 }
 
